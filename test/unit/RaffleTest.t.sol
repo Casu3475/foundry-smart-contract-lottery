@@ -96,8 +96,8 @@ contract RaffleTest is Test, CodeConstants {
         // Arrange
         vm.prank(PLAYER);
         raffle.enterRaffle{value: raffleEntranceFee}();
-        vm.warp(block.timestamp + automationUpdateInterval + 1);
-        vm.roll(block.number + 1);
+        vm.warp(block.timestamp + automationUpdateInterval + 1); // vm.warp sets the block.timestamp 
+        vm.roll(block.number + 1); // vm.roll sets the block.number
         raffle.performUpkeep("");
 
         // Act / Assert
